@@ -1,0 +1,101 @@
+:root {
+  --aside-width: 0.2;
+  --map-size: 1;
+  --cell-size: calc((100vw * (1 - var(--aside-width)) - 1px * var(--map-size)) / (var(--map-size) + 2));
+
+  --selected-color: aqua;
+  --selected-border: aquamarine;
+  --cell-color: cornsilk;
+  --cell-border: bisque;
+  --bot-color: violet;
+  --bot-border: blueviolet;
+}
+
+.body {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template:
+    "header header"
+    "main aside"
+    "footer footer";
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: min-content 1fr min-content;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+  padding: var(--cell-size);
+}
+
+.main__map {
+}
+
+.map {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(var(--map-size), min-content);
+  grid-template-rows: repeat(var(--map-size), min-content);
+}
+
+.map__cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-color: var(--cell-color);
+  border: 1px solid var(--cell-border);
+}
+
+.map__cell::after {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: var(--cell-size);
+  margin-left: calc(var(--cell-size) * 1.25);
+  content: attr(data-row) ';' attr(data-col);
+}
+
+.map__cell:hover {
+  background-color: var(--selected-color);
+  border: 1px solid var(--selected-border);
+  cursor: pointer;
+}
+
+.map__cell:hover::after {
+  position: absolute;
+  display: grid;
+  z-index: 2;
+}
+
+.map__cell--bot {
+  background-color: var(--bot-color);
+  border: 1px solid var(--bot-border);
+}
+
+.map__cell-shot {
+  opacity: 0.3;
+}
+
+.aside {
+  grid-area: aside;
+  padding: var(--cell-size);
+}
+
+.aside__table {
+  
+}
+
+.table {
+  font-size: 4em;
+}
+
+.table__player-wins {}
+
+.footer {
+  grid-area: footer;
+}
