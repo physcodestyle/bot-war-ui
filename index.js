@@ -66,6 +66,7 @@ function addShot(mapSize, top, left) {
   console.log(leftOffset)
   const shotCell = map.childNodes.item(leftOffset)
   shotCell.classList.add('map__cell-shot')
+  
 }
 
 function init(size) {
