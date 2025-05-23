@@ -2,7 +2,7 @@
   --aside-width: 0.2;
   --map-size: 1;
   --cell-size: calc((100vw * (1 - var(--aside-width)) - 1px * var(--map-size)) / (var(--map-size) + 2));
-
+  --shot-hit-color: red;
   --selected-color: aqua;
   --selected-border: aquamarine;
   --cell-color: cornsilk;
@@ -26,6 +26,7 @@
 
 .header {
   grid-area: header;
+  text-align: center;
 }
 
 .main {
@@ -44,6 +45,7 @@
 }
 
 .map__cell {
+  transition: 0.5s;
   width: var(--cell-size);
   height: var(--cell-size);
   background-color: var(--cell-color);
@@ -61,6 +63,7 @@
 }
 
 .map__cell:hover {
+  transition: 0.5s;
   background-color: var(--selected-color);
   border: 1px solid var(--selected-border);
   cursor: pointer;
@@ -81,12 +84,18 @@
   opacity: 0.3;
 }
 
+.map__cell-shot.map__cell--bot{
+  background-color: var(--shot-hit-color);
+  opacity: 1;
+}
+
 .aside {
   grid-area: aside;
   padding: var(--cell-size);
 }
 
 .aside__table {
+  
   
 }
 
