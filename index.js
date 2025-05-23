@@ -73,9 +73,5 @@ function init(size) {
   const root = document.querySelector(':root')
   root.style.setProperty('--map-size', String(size))
   createMap(size)
-  addBot(18, 6, 6, 1, true)
-  addBot(18, 16, 1, 2, true)
-  addShot(18, 16, 2)
-  addShot(18, 11, 2)
 }
-init(18)
+
