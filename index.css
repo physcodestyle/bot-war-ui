@@ -2,7 +2,7 @@
   --aside-width: 0.2;
   --map-size: 1;
   --cell-size: calc((100vw * (1 - var(--aside-width)) - 1px * var(--map-size)) / (var(--map-size) + 2));
-
+  --shot-hit-color: red;
   --selected-color: aqua;
   --selected-border: aquamarine;
   --cell-color: cornsilk;
@@ -85,7 +85,7 @@
 }
 
 .map__cell-shot.map__cell--bot{
-  background-color: red;
+  background-color: var(--shot-hit-color);
   opacity: 1;
 }
 
